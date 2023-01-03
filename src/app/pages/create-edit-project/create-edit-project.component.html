@@ -1,0 +1,34 @@
+<div class="ld-project-create-edit">
+  <app-wrapper wrapperClass="-two-col" [isGoBack]="true">
+    <form class="left"  [formGroup]="projectForm" (ngSubmit)="createOrEditProject()">
+
+      <h1 class="main-title">{{ title }}</h1>
+
+      <app-input
+        label="Título"
+        [formRef]="projectForm"
+        field="title"
+        inputType="text"></app-input>
+
+        <app-input
+          label="Preço"
+          [formRef]="projectForm"
+          field="totalCost"
+          inputType="number"></app-input>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Descrição</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+        <mat-error *ngIf="fieldFormIsInvalid('description', 'required')">{{ messageError.required }}</mat-error>
+      </mat-form-field>
+
+      <app-button [btnText]="actionButtonText" type="submit"></app-button>
+
+    </form>
+
+    <div class="right">
+      <img class="image" alt="Fundo de decoração com 3 cubos com fundo gradient das cores do arco-iris"
+          src="assets/image/bg-float-cubes.png">
+    </div>
+  </app-wrapper>
+</div>

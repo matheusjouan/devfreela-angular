@@ -1,0 +1,60 @@
+<div class="ld-login">
+  <app-wrapper>
+    <form class="left" (submit)="onSubmitForm()" [formGroup]="registerForm">
+
+      <h1 class="main-title">
+          <span class="up">Olá!</span>
+          <span class="down">Vamos criar seu cadastro.</span>
+      </h1>
+
+      <div class="radio-buttons">
+          <h3 class="title">Qual o seu perfil?</h3>
+          <div class="buttons">
+              <label class="ld-radio">
+                  Dev
+                  <input name="role" type="radio" (click)="toogleRole('dev')">
+                  <span class="checkmark"></span>
+              </label>
+
+              <label class="ld-radio">
+                  Cliente
+                  <input name="role" type="radio" (click)="toogleRole('client')">
+                  <span class="checkmark"></span>
+              </label>
+          </div>
+          <span class="error-role" *ngIf="fieldFormIsInvalid('role', 'required')">Preencha uma role</span>
+      </div>
+
+      <app-input
+        label="Nome completo"
+        [formRef]="registerForm"
+        field="fullName"
+        inputType="text"></app-input>
+
+        <app-input
+          label="Data de nascimento"
+          [formRef]="registerForm"
+          field="birthDate"
+          inputType="date"></app-input>
+
+        <app-input
+          label="Email"
+          [formRef]="registerForm"
+          field="email"
+          inputType="email"></app-input>
+
+          <app-input
+            label="Senha"
+            [formRef]="registerForm"
+            field="password"
+            inputType="password"></app-input>
+
+      <app-button btnText="Continuar"></app-button>
+
+    </form>
+    <div class="right">
+        <img class="image" alt="Fundo de decoração com 3 cubos com fundo gradient das cores do arco-iris"
+            src="assets/image/bg-cubes.png">
+    </div>
+  </app-wrapper>
+</div>

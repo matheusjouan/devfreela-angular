@@ -1,0 +1,9 @@
+
+<div [formGroup]="formRef">
+  <mat-form-field appearance="legacy">
+    <mat-label>{{ label }}</mat-label>
+    <input matInput [formControlName]="field" [type]="inputType" [mask]="inputMask" />
+    <mat-error *ngIf="fieldFormIsInvalid(field, 'required')">{{ errorMessage.required }}</mat-error>
+    <mat-error *ngIf="fieldFormIsInvalid(field, 'email')">{{ errorMessage.email }}</mat-error>
+  </mat-form-field>
+</div>

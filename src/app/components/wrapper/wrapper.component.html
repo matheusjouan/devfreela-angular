@@ -1,0 +1,15 @@
+<div class="ld-wrapper">
+    <app-header></app-header>
+
+    <main
+      class="main-content"
+      [ngClass]="wrapperClass"
+      >
+
+      <a class="back-btn material-icons" (click)="goBack()" *ngIf="isGoBack">
+        keyboard_arrow_left
+      </a>
+
+      <ng-content></ng-content>
+    </main>
+</div>
